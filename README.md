@@ -1,6 +1,7 @@
 # HackerDex: Solana Risk Analysis & Exfiltration Pattern Detection
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **HackerDex** is an open-source Rust-based toolkit designed for in-depth analysis of Solana addresses and transactions. It aims to identify suspicious behavior patterns, assess risk factors, and detect potential fund exfiltration routes, contributing to a safer Solana ecosystem.
 
 Born from a hackathon project, HackerDex has evolved with the vision of providing a collaborative, open-source platform for security researchers, developers, and blockchain analysts.
