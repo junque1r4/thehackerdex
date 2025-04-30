@@ -1,0 +1,24 @@
+# Sample known addresses for HackerDex
+# Format: address,entity_name,category,risk_level,source_of_info,confidence_score,notes
+
+# Bridge contracts
+wormDTUJ6AWPNvk59vGQbDvGJmqbDTdgWgAqcLBCgUb,Wormhole,Bridge Contract,Low,Official Docs,5,Official Wormhole bridge contract on Solana
+5sRDCJh71ReeJBpoCTDCg5mPdUxcMYJVYgmTCJCUzszV,Portal Bridge - Wormhole,Bridge Contract,Medium,Official Docs,5,Portal bridge for tokens (part of Wormhole)
+3u8hJUVTA4jH1wYAyUur7FFZVQ8H635K3tSHHF4ssjQ5,Wormhole: Core Bridge,Bridge Contract,Medium,Official Docs,5,Core bridge for Wormhole
+
+# DEX Routers
+JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4,Jupiter Aggregator,DEX Router,Low,Official Docs,5,Jupiter DEX aggregator program on Solana
+whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc,Orca Whirlpools,DEX Router,Low,Official Docs,5,Orca Whirlpools DEX protocol
+9W959DqEETiGZocYWCQPaJ6sBmUzgfxXfqGeTEdp3aQP,Raydium Liquidity Pool V4,DEX Router,Low,Official Docs,5,Raydium Liquidity Pool program v4
+
+# Known Hackers (examples - these are fictional)
+7EcFfzGYMWtEFPVQ4UvfEVz48rHjvgMsNHyEYxmX3qjL,FTX Hack Wallet 1,Known Hacker,Critical,OSINT Report-12-22,4,Wallet identified in FTX exploit
+4YsGqUpRVY53aZGLXiBQzYw1YKKBw1YNygE3gsn1ru8H,Ronin Bridge Hack Wallet,Known Hacker,Critical,OSINT Report-03-23,5,Wallet linked to the Ronin bridge hack
+
+# Sanctioned Entities
+3HPJpc9FG2mNvtEp13wKtrB5jgF7vXUvBnRRwqYmQgHY,Tornado Cash Deposit,Sanctioned Entity,High,OFAC List,5,Address associated with Tornado Cash deposits
+55fawfFaD2K9NuNWXHpZbpgUKFKjB9iGQQNnasL9kmM7,Blender.io Mixer,Sanctioned Entity,High,OFAC List,4,Address associated with Blender.io mixing service
+
+# High-Risk Gambling DApps
+5pofe1ZhAVdxJwgogLqA7Fe1Nm5NW1yz41XoW3vJQjVR,Anonymous Gambling DApp,High-Risk Gambling,Medium,Manual Investigation,3,Gambling DApp with minimal KYC
+6tEi7kfzkapYEfEXLYdbQbYS1DPxmwV7Z6Z9xJsVXgvT,UnknownBet Platform,High-Risk Gambling,Medium,Community Alert - Unverified,2,Reported as suspicious gambling platform

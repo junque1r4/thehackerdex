@@ -1,0 +1,78 @@
+# Analyze Known Wallets Configuration - DEBUGGING MODE
+
+# Whether to analyze all wallets in the database
+analyze_all = false
+
+# List of specific categories to analyze
+# TODO: Add category: User
+# analyze_categories = ["Exchange", "Mixer", "Bridge"]
+
+# List of specific risk levels to analyze (comment out to include all risk levels)
+# analyze_risk_levels = [
+#   "High",
+#   "Critical"
+# ]
+
+analyze_addresses = [
+    # The following wallets were being analyzed in your previous run:
+    "89FL9iyx6nCteQZtAnZx725HWrzCi7pmHkW2o9GMugU",
+    "1orFCnFfgwPzSgUaoK6Wr3MjgXZ7mtk8NGz9Hh4iWWL",
+    "ACSzfEnXbGaxBN1iD2pR1C6tQYSiBvqGPx8Wx1ZTbV2o",
+]
+
+# Maximum number of historical transactions to fetch per address
+max_history_transactions = 40
+
+# Maximum number of days to look back in history
+max_history_days = 100
+
+# Whether to update the database notes field with the analysis results
+update_db_notes = true
+
+# Maximum number of concurrent analysis tasks
+max_concurrent_tasks = 15
+
+# Exfiltration pattern rules mapping
+[exfiltration_rules.mixer_interaction]
+# Threshold for risky spending detection
+min_risky_spending_ratio = 0.5
+mixer_categories = [
+    "Mixer",
+    "Anonymizing Service",
+    "Tornado Cash",
+    "Privacy Tool",
+    "Privacy Protocol",
+    "Coinjoin",
+]
+
+[exfiltration_rules.bridge_hopping]
+is_pass_through = true
+bridge_categories = [
+    "Bridge",
+    "Cross-Chain Bridge",
+    "Wormhole",
+    "Portal Bridge",
+]
+
+[exfiltration_rules.structuring]
+min_structuring_score = 0.4
+min_transactions_for_structuring = 5
+similar_amount_threshold_ratio = 0.5 # 50% variance for "similar" amounts
+small_tx_amount_threshold = 3.0 # A "small" transaction is < 3 SOL
+structuring_time_window = 86400 # 24 hours in seconds
+cex_categories = [
+    "Exchange",
+    "CEX",
+    "Centralized Exchange",
+    "Binance",
+    "Coinbase",
+]
+
+[exfiltration_rules.drainer_consolidation]
+min_funding_ratio = 0.7
+victim_categories = [
+    "Drainer Victim",
+    "Exploit Victim",
+    "Hack Victim",
+    "Phishing Victim",
+]

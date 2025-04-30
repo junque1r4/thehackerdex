@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: hackerdex-postgres
+    environment:
+      POSTGRES_USER: hackerdex
+      POSTGRES_PASSWORD: hackerdex_password
+      POSTGRES_DB: hackerdex
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hackerdex"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    name: hackerdex-postgres-data

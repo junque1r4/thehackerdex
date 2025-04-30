@@ -1,0 +1,43 @@
+# Optimized Heuristic Weights for Solana Wallet Compromise Detection
+# Based on analysis of common attack vectors (Phishing, Drainers, TOCTOU, Key Compromise)
+# NOTE: This configuration is a starting point. Thresholds and weights
+# should be tuned based on observed performance (detection vs. false positives).
+# IMPORTANT LIMITATION: Not all critical heuristics identified in research
+# (e.g., suspicious_approval, potential_TOCTOU_pattern, behavioral_anomaly)
+# have direct corresponding parameters in this configuration structure.
+
+# MODIFIED: Weights adjusted to reduce false positives for specific patterns (Peel Chain, Churning, Obfuscation).
+
+[weights]
+# Critical risk indicators (Weights significantly increased based on Solana threat analysis)
+direct_illicit_interaction = 3 # Maintain highest weight: High confidence indicator of interaction with known bad actors.
+high_risk_program = 3          # Increased: Critical for detecting interaction with malicious contracts/dApps/drainers common in phishing/exploits.
+high_risk_wallet = 2.5         # Maintained High: Interaction with known risky wallets is a strong signal.
+rapid_dispersal = 2.4          # Increased Significantly: Strong signal of automated draining after key compromise or drainer execution.
+total_balance_sweep = 2.6
+# High risk indicators (Adjusted based on relevance to compromise)
+suspicious_approval = 2.5
+potential_TOCTOU_pattern = 2.5
+behavioral_anomaly = 2.0
+risky_funding = 1.5
+risky_spending = 1.5
+fund_consolidation = 0.8
+rapid_dispersal_score = 1.5
+
+# Medium risk indicators (Maintained or slightly adjusted for context)
+structuring = 0.3    # MODIFIED: Decreased Significantly - Meme trading often involves many small swaps that might trigger this.
+high_frequency = 1.8 # Increased Slightly: Can be part of behavioral anomaly, especially if deviation from norm. Context dependent.
+pass_through = 0.8   # MODIFIED: Decreased Slightly - Quick swaps might resemble pass-through.
+risky_category = 1.0 # Maintained: Interaction with risky service types (e.g., non-KYC exchanges, gambling) can be relevant context.
+
+# Low risk indicators
+new_wallet = 0.5 # Maintained Low: A new wallet itself isn't high risk without other indicators (though interaction *with* new wallets/programs can be).
+
+# Custom flags from heuristics (Adjusted based on related heuristics)
+fund_consolidation_score = 0.8 # Maintained: Corresponds to fund_consolidation weight.
+
+# --- MODIFIED/ADDED weights for specific patterns likely causing false positives ---
+peel_chain_pattern = 0.2     # ADDED (Assumption): Assuming this custom flag exists. Significantly reduced weight.
+churning_pattern = 0.2       # ADDED (Assumption): Assuming this custom flag exists. Significantly reduced weight.
+obfuscation_techniques = 0.3 # ADDED (Assumption): Assuming this custom flag exists. Reduced weight (as it aggregates other flags).
+# --------------------------------------------------------------------------------

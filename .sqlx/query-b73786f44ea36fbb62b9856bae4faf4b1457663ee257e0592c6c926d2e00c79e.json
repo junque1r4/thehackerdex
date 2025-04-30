@@ -1,0 +1,20 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO known_addresses \n            (address, entity_name, category, risk_level, source_of_info, confidence_score, notes)\n        VALUES \n            ($1, $2, $3, $4, $5, $6, $7)\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Varchar",
+        "Varchar",
+        "Varchar",
+        "Int4",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "b73786f44ea36fbb62b9856bae4faf4b1457663ee257e0592c6c926d2e00c79e"
+}

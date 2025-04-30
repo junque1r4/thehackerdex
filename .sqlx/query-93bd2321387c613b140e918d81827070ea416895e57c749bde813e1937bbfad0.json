@@ -1,0 +1,70 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT \n            address,\n            entity_name,\n            category,\n            risk_level,\n            source_of_info,\n            confidence_score,\n            notes,\n            created_at as \"created_at!: OffsetDateTime\",\n            updated_at as \"updated_at!: OffsetDateTime\"\n        FROM known_addresses WHERE category = $1\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "address",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 1,
+        "name": "entity_name",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "category",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "risk_level",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 4,
+        "name": "source_of_info",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 5,
+        "name": "confidence_score",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 6,
+        "name": "notes",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "created_at!: OffsetDateTime",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 8,
+        "name": "updated_at!: OffsetDateTime",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "93bd2321387c613b140e918d81827070ea416895e57c749bde813e1937bbfad0"
+}

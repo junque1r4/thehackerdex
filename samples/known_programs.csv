@@ -1,0 +1,85 @@
+# Common and well-known Solana programs for HackerDex
+# Format: address,entity_name,category,risk_level,source_of_info,confidence_score,notes
+
+# Core Solana Programs
+11111111111111111111111111111111,System Program,Core Program,Low,Official Solana Docs,5,Solana core system program for creating accounts and transferring SOL
+TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA,SPL Token Program,Token Program,Low,Official Solana Docs,5,Solana Program Library Token Program for managing tokens
+ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL,Associated Token Account Program,Token Program,Low,Official Solana Docs,5,Solana Program Library Associated Token Account Program
+MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr,SPL Memo Program,Core Program,Low,Official Solana Docs,5,Solana Program Library Memo Program for storing on-chain memos
+ComputeBudget111111111111111111111111111111,Compute Budget Program,Core Program,Low,Official Solana Docs,5,Solana compute budget program for setting compute limits
+9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin,Serum DEX v3,DEX,Low,Project Serum Docs,5,Serum Decentralized Exchange v3 program
+
+# Jupiter (Aggregator)
+JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4,Jupiter Aggregator v6,DEX Aggregator,Low,Jupiter Exchange Docs,5,Jupiter v6 main router program
+JUP2jxvXaqu7NQY1GmNF4m1vodw12LVXYxbFL2uJvfo,Jupiter Aggregator v2,DEX Aggregator,Low,Jupiter Exchange Docs,5,Jupiter v2 program (legacy)
+JUP3c2Uh3WA4Ng34tw6kPd2G4C5BB21Xo36Je1s32Ph,Jupiter Aggregator v3,DEX Aggregator,Low,Jupiter Exchange Docs,5,Jupiter v3 program
+JUP4Fb2cqiRUcaTHdrPC8h2gNsA2ETXiPDD33WcGuJB,Jupiter Aggregator v4,DEX Aggregator,Low,Jupiter Exchange Docs,5,Jupiter v4 program
+
+# MarginFi (M2)
+mrgnFMdcVuF8M5SzvmE33dgJ65p8uJxfNsjhf6nyFpk,MarginFi (M2) Bank,Lending Protocol,Medium,MarginFi Docs,4,MarginFi Bank Program (M2) for lending and borrowing
+MRGNBSZzULmY1D4WPX536Q5RoBKypXYYfP3NkTaGbhB,MarginFi (M2) Admin,Lending Protocol,Medium,MarginFi Docs,4,MarginFi Admin Program for governance
+
+# Raydium
+675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8,Raydium AMM Program,DEX,Low,Raydium Docs,5,Raydium Automated Market Maker Program
+5quBtoiQqxF9Jv6KYKctB59NT3gtJD2Y65kdnB1Uev3h,Raydium Staking Program,Staking,Low,Raydium Docs,5,Raydium Liquidity Pool Staking Program
+
+# Orca
+9W959DqEETiGZocYWCQPaJ6sBmUzgfxXfqGeTEdp3aQP,Orca Whirlpool,DEX,Low,Orca Docs,5,Orca Whirlpool DEX Program
+DjVE6JNiYqPL2QXyCUUh8rNjHrbz9hXHNYt99MQ59qw1,Orca Pool,DEX,Low,Orca Docs,5,Orca Constant Product Pool Program
+
+# Magic Eden
+M2mx93ekt1fmXSVkTrUL9xVFHkmME8HTUi5Cyc5aF7K,Magic Eden V2,NFT Marketplace,Low,Magic Eden Docs,5,Magic Eden NFT Marketplace Program v2
+
+# Marinade
+MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD,Marinade Staking Program,Staking,Low,Marinade Docs,5,Marinade stSOL Liquid Staking Program
+
+# Pyth Oracle
+FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH,Pyth Oracle,Oracle,Low,Pyth Docs,5,Pyth Oracle Price Feed Program
+
+# Metaplex
+metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s,Metaplex Metadata,NFT,Low,Metaplex Docs,5,Metaplex Token Metadata Program for NFTs
+p1exdMJcjVao65QdewkaZRUnU6VPSXhus9n2GzWfh98,Metaplex Candy Machine v1,NFT,Low,Metaplex Docs,5,Metaplex Candy Machine v1 for NFT minting
+cndy3Z4yapfJBmL3ShUp5exZKqR3z33thTzeNMm2gRZ,Metaplex Candy Machine v2,NFT,Low,Metaplex Docs,5,Metaplex Candy Machine v2 for NFT minting
+CMZYPASGWeTz7RNGHaRJfCq2XQ5pYK6nDvVQxzkH51zb,Metaplex Auction House,NFT,Low,Metaplex Docs,5,Metaplex Auction House for NFT trading
+
+# Solend
+So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo,Solend Main Program,Lending Protocol,Medium,Solend Docs,5,Solend main lending program
+
+# Phoenix
+PhoeNiXZ8ByJGLkxNfZRnkUfjvmuYqLR89jjFHGqdXY,Phoenix DEX,DEX,Low,Phoenix Docs,5,Phoenix On-chain Central Limit Order Book (CLOB)
+
+# Mercurial
+MER8ozkBsKpXmwkY4xXJyZ3hyJMToL3HKyMxcV7SCxp,Mercurial Finance,Stableswap,Medium,Mercurial Docs,4,Mercurial Stableswap Program
+
+# Wormhole
+worm2ZoG2kUd4vFXhvjh93UUH596ayRfgQ2MgjNMTth,Wormhole v2,Cross-Chain Bridge,Medium,Wormhole Docs,5,Wormhole v2 Core Bridge Program
+
+# Drift Protocol
+dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH,Drift Protocol,Perpetuals DEX,Medium,Drift Protocol Docs,5,Drift Protocol for Perpetual Swaps
+
+# Mango Markets
+4MangoMjqJ2firMokCrCZvBhJzjGPV9gYcV2iWTRKhQJ,Mango Markets v4,DEX,Medium,Mango Markets Docs,5,Mango Markets v4 Program
+
+# Saber
+SSwpkEEcbUqx4vtoEByFjSkhKdCT862DNVb52nZg1UZ,Saber Stableswap,DEX,Low,Saber Docs,5,Saber Stable Swap AMM Program
+
+# Squads
+SMPLecH534NA9acpos4G6x7uf3LWbCAwZQE9e8ZekMu,Squads Multisig,Multisig,Low,Squads Docs,5,Squads Multisignature Program
+
+# Friktion
+FriCkrr6XwXxupP39RZYUc2QF88VLNnzVs6QZ4GsErB,Friktion Protocol,Options/Structured Products,Medium,Friktion Docs,4,Friktion Options and Structured Products
+
+# Jito
+JitosoLFbnfYQDDK7wggti3yXT2sTTdo2RiaaLu3Xzq,Jito MEV,Staking Derivatives,Low,Jito Labs Docs,5,Jito MEV Infrastructure
+
+# Kamino
+KaminoNWxTjxb8PviDR5RzND1Vz8KyD8ttGVLgNKfQY,Kamino Finance,Yield Farming,Medium,Kamino Docs,4,Kamino Finance Automated Liquidity Strategy
+
+# Zeta Markets
+ZETAxsqBRek56DhiGXrn75yj2NHU3aYUnxvHXpkf3aD,Zeta Markets,Options Protocol,Medium,Zeta Markets Docs,4,Zeta Markets Options Protocol
+
+# Star Atlas
+ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx,Star Atlas Token,Gaming,Low,Star Atlas Docs,4,Star Atlas ATLAS token program
+
+# Stepn
+AFbX8oGjGpmVFywbVouvhQSRmiW2aR1mohfahi4Y2AdB,Stepn,Move-to-Earn,Low,Stepn Docs,4,Stepn move-to-earn application

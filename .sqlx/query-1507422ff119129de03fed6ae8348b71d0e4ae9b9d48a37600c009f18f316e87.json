@@ -1,0 +1,20 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO known_addresses (address, entity_name, category, risk_level, source_of_info, confidence_score, notes)\n        VALUES ($1, $2, $3, $4, $5, $6, $7)\n        ON CONFLICT (address) DO UPDATE SET\n            entity_name = EXCLUDED.entity_name,\n            category = EXCLUDED.category,\n            risk_level = EXCLUDED.risk_level,\n            source_of_info = EXCLUDED.source_of_info,\n            confidence_score = EXCLUDED.confidence_score,\n            notes = EXCLUDED.notes\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Varchar",
+        "Varchar",
+        "Varchar",
+        "Int4",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "1507422ff119129de03fed6ae8348b71d0e4ae9b9d48a37600c009f18f316e87"
+}
