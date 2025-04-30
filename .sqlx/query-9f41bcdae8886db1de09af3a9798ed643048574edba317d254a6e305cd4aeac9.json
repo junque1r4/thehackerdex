@@ -1,0 +1,64 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT \n            id,\n            source_address,\n            target_address,\n            relationship_type,\n            trace_initiator,\n            hop_count,\n            discovery_timestamp as \"discovery_timestamp!: OffsetDateTime\",\n            transaction_signature\n        FROM trace_links WHERE source_address = $1\n        ORDER BY hop_count ASC, discovery_timestamp DESC\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "source_address",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "target_address",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 3,
+        "name": "relationship_type",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "trace_initiator",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 5,
+        "name": "hop_count",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 6,
+        "name": "discovery_timestamp!: OffsetDateTime",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 7,
+        "name": "transaction_signature",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "9f41bcdae8886db1de09af3a9798ed643048574edba317d254a6e305cd4aeac9"
+}

@@ -1,0 +1,9 @@
+address,entity_name,category,risk_level,source_of_info,confidence_score,notes
+9R3UzKAQLuc52mSoi1eFhxtcdw7yMgv3oMBY1V1tVVoB,"Raydium Pool BROTHERS-SOL","DEX","Low","Solscan/Analysis",4,"Raydium AMM Pool (BROTHERS-SOL)"
+42sZPHZ5iKPGJva9mEozRs8CWitFkXRtyaySizak3Nr4,"Moonit Scooby Interaction","DApp","Medium","Solscan/Analysis",3,"Associated with Moonit DApp and SCOOBY token"
+Habp5bncMSsBC3vkChyebepym5dcTNRYeg2LVG464E96,"Raydium LP Holder (Bonk-USDC)","Wallet","Low","Solscan/Analysis",3,"Holds Raydium Bonk-USDC LP tokens"
+25mYnjJ2MXHZH6NvTTdA63JvjgRVcuiaj6MRiEQNs1Dq,"Phantom Swap Fees Address","Wallet Service","Low","Solscan/Analysis",4,"Associated with Phantom wallet swap fees"
+fLiPgg2yTvmgfhiPkKriAHkDmmXGP6CdeFX9UF5o7Zc,"ME Token Holder","Wallet","Low","Solscan/Analysis",3,"Holds Magic Eden (ME) tokens"
+5Hr7wZg7oBpVhH5nngRqzr5W7ZFUfCsfEhbziZJak7fr,"OdinBot Address","Trading Bot","Low","User Input",5,"User identified copy trading bot"
+HcfSooE94CGcszkVtVWsZZ8SjLisnpRXussFBUb6Qd9d,"FUTZ Token Creator/Holder","Token Creator","Medium","Solscan/Analysis",3,"Associated with FUTZ token creation/holding"
+49st3q5nba9VfafCsq6yJTQ311yFZ1EroPES9r5NiKpi,"Moonit Homer Interaction","DApp","Medium","Solscan/Analysis",3,"Associated with Moonit DApp and HOMER token"

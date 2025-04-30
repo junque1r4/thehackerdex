@@ -1,0 +1,26 @@
+# Feature flags for controlling various analysis types
+
+[analysis_features]
+# Enable analysis of peel chain exfiltration patterns
+# (sequential transactions that "peel off" small amounts while moving the bulk through new addresses)
+peel_chain_exfiltration_enabled = false
+
+# Enable analysis of fund churning patterns
+# (repeatedly moving funds between addresses likely controlled by the same entity)
+fund_churning_enabled = true
+
+# Enable analysis of bridge hopping patterns
+# (Moving funds across blockchain networks, often to evade tracking)
+bridge_hopping_enabled = true
+
+# Enable analysis of structuring patterns
+# (Breaking up larger transactions into smaller ones to avoid detection)
+structuring_enabled = true
+
+# Enable analysis of mixer interaction patterns
+# (Using mixing services to obscure fund origins)
+mixer_interaction_enabled = true
+
+# Enable analysis of drainer consolidation patterns
+# (Funds from multiple compromised wallets being consolidated)
+drainer_consolidation_enabled = true

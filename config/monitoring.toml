@@ -1,0 +1,44 @@
+# HackerDex Monitoring Configuration
+
+# List of program IDs to monitor (examples)
+target_programs = [
+    "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s", # Metaplex token metadata program
+    "vau1zxA2LbssAUEF7Gpw91zMM1LvXrvpzJtmZ58rPsn", # Wormhole token bridge
+    "wormDTUJ6AWPNvk59vGQbDvGJmqbDTdgWgAqcLBCgUb", # Wormhole core bridge
+]
+
+# List of high-risk addresses to watch interactions for
+watch_addresses = [
+    "d41a158e2677072944e0fed98cfd654686b405c0578557c46b3e7ab5e5df27d8", # Example exploit address
+]
+
+# Monitoring strategy: "polling" or "websocket"
+strategy = "polling"
+
+# Polling interval in seconds (used when strategy is "polling")
+polling_interval_seconds = 60
+
+# WebSocket connection parameters (used when strategy is "websocket")
+[websocket_params]
+max_reconnects = 5
+reconnect_backoff_seconds = 10
+batch_size = 100
+
+# Criteria that define when a transaction or interaction is critical
+[critical_criteria]
+# Minimum risk score to consider critical (0-100)
+risk_score_threshold = 80
+
+# List of heuristic flags that indicate critical status
+required_flags = ["direct_illicit_interaction"]
+
+# Configuration for automatically added wallets during monitoring
+[auto_added_wallets]
+# Default category for auto-added wallets
+default_category = "monitored_suspicious"
+
+# Default risk level (1-5) for auto-added wallets
+default_risk_level = 4
+
+# Source note template (will be stored in DB)
+source_note = "Automated Monitor v0.1 (Critical Transaction Detection)"
