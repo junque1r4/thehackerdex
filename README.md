@@ -39,12 +39,12 @@ HackerDex is an evolving project, and we envision several key areas for future d
 * **Monitoring & Alerting:** Enhance the `monitor` binary with real-time analysis capabilities and configurable alerting mechanisms for high-risk events.
 * **Cross-Chain Capabilities:** Develop methods to track funds more effectively *across* different blockchains after they leave Solana via bridges.
 
-We welcome contributions from the community to help achieve these goals. If you're interested in contributing, please check the [Issue Tracker](link-to-your-issue-tracker) or start a discussion!
+We welcome contributions from the community to help achieve these goals. If you're interested in contributing, please check the [Issue Tracker]([link-to-your-issue-tracker](https://github.com/junque1r4/thehackerdex/issues) or start a discussion!
 
 
 ## Analysis Engine: Detected Patterns
 
-HackerDex employs a range of heuristics to identify specific patterns often associated with illicit activities. The detailed methodology for each pattern is documented separately (See `/docs` folder or project wiki - *[Placeholder: Link to actual documentation location]*)
+HackerDex employs a range of heuristics to identify specific patterns often associated with illicit activities. The detailed methodology for each pattern is documented separately (See `/docs` folder
 
 Detected patterns include:
 
@@ -147,7 +147,7 @@ Detected patterns include:
 
 ### Populating the Database
 
-The effectiveness of HackerDex relies heavily on the `known_addresses` table. You can populate it using:
+The effectiveness of HackerDex relies heavily on the `known_addresses` table. In samples you'll find know programs, wallets and the blacklist from Kelsier Ventures. You can populate it using:
 
 * **Manual Import:** Use the `db_import` tool with a CSV file.
     ```bash
@@ -228,7 +228,7 @@ Contributions are welcome! Please follow these guidelines:
       * Commit your changes and push to your fork.
       * Open a pull request against the main repository branch.
 3.  **Coding Style:** Follow standard Rust conventions and the formatting applied by `cargo fmt`. Add comments to explain complex logic.
-4.  **Documentation:** Update the README or relevant documentation if you add or change functionality.
+4.  **Documentation:** Update the README or relevant documentation if you add or change functionality. For specific functionalities add it to the docs folder.
 
 ## License
 
