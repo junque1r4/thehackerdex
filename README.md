@@ -39,7 +39,7 @@ HackerDex is an evolving project, and we envision several key areas for future d
 * **Monitoring & Alerting:** Enhance the `monitor` binary with real-time analysis capabilities and configurable alerting mechanisms for high-risk events.
 * **Cross-Chain Capabilities:** Develop methods to track funds more effectively *across* different blockchains after they leave Solana via bridges.
 
-We welcome contributions from the community to help achieve these goals. If you're interested in contributing, please check the [Issue Tracker]([link-to-your-issue-tracker](https://github.com/junque1r4/thehackerdex/issues) or start a discussion!
+We welcome contributions from the community to help achieve these goals. If you're interested in contributing, please check the [Issue Tracker](https://github.com/junque1r4/thehackerdex/issues) or start a discussion!
 
 
 ## Analysis Engine: Detected Patterns
