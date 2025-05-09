@@ -7,7 +7,7 @@ pub use monitoring::{
 };
 
 use crate::error::HackerdexError;
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use serde::{Deserialize, Serialize};
 use std::{env, fs, path::Path};
 

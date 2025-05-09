@@ -1,4 +1,4 @@
-use hackerdex::{
+use thehackerdex::{
     HackerdexError,
     config::Config,
     db::repository::get_address_details,

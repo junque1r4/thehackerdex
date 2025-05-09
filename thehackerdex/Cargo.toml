@@ -1,0 +1,73 @@
+[package]
+name = "thehackerdex" # Adjusted to match workspace member name
+version = "0.1.0"
+edition = "2021" # Using 2021 as a common modern default, original prompt didn't specify 2024 for this file.
+
+[dependencies]
+# Core Solana client libraries
+solana-client = "2.2.2"
+solana-sdk = "2.2.2"
+solana-transaction-status = "2.2.2"
+solana-rpc-client-api = "2.2.2"
+solana-transaction-status-client-types = "2.2.2"
+
+# Asynchronous runtime
+tokio = { version = "1.36.0", features = ["full"] }
+futures = "0.3"
+
+# Serialization/Deserialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# Database
+sqlx = { version = "0.7.3", features = [
+    "runtime-tokio-rustls", # Adjusted from runtime-tokio to match Axum's sqlx features
+    "postgres",
+    "sqlite", # Kept sqlite as it was in original
+    "json",
+    "time",
+    "migrate",
+] }
+
+# DateTime handling
+chrono = { version = "0.4", features = ["serde"] }
+time = { version = "0.3", features = ["serde"] } # For sqlx time
+
+# Error handling and utilities
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Rate limiting
+governor = "0.6.0"
+nonempty = "0.9" # governor might need this or similar for NotKeyed
+
+# Random number generation
+rand = "0.8"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Configuration management
+config = "0.13" # This is for the 'config' crate, not app_config from API
+dotenvy = "0.15" # Changed from dotenv to dotenvy for consistency with API
+
+# Command line argument parsing
+clap = { version = "4.4", features = ["derive"] } # Added derive feature
+
+# HTTP client for OSINT crawler
+reqwest = { version = "0.11", features = ["json"] }
+
+# Base64 encoding/decoding
+base64 = "0.22.0"
+
+# Regular expressions
+regex = "1.10.3"
+
+# SPL Token
+spl-token = "4.0.0"
+
+[dev-dependencies]
+# Mock HTTP server for testing
+mockito = "1.2.0"

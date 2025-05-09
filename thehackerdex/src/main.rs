@@ -1,9 +1,9 @@
-use hackerdex::analysis::program_analyzer;
-use hackerdex::analysis::transaction_parser::{ParsedTransaction, parse_transaction};
-use hackerdex::config; // Import the config module itself
-use hackerdex::db; // Import the db module itself
-use hackerdex::demo; // Import the demo module itself
-use hackerdex::rpc::client::RateLimitedClient;
+use thehackerdex::analysis::program_analyzer;
+use thehackerdex::analysis::transaction_parser::{ParsedTransaction, parse_transaction};
+use thehackerdex::config; // Import the config module itself
+use thehackerdex::db; // Import the db module itself
+use thehackerdex::demo; // Import the demo module itself
+use thehackerdex::rpc::client::RateLimitedClient;
 
 use anyhow::Result;
 use solana_transaction_status::UiTransactionTokenBalance;

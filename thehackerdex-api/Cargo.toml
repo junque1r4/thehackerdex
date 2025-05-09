@@ -1,0 +1,22 @@
+[package]
+name = "thehackerdex-api"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+thehackerdex = { path = "../thehackerdex" } # Path to your core library
+
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono", "json"] }
+dotenvy = "0.15" # For loading .env files
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+hyper = { version = "1", features = ["full"] } # Ensure hyper 1.x for Axum 0.7
+tower-http = { version = "0.5.0", features = ["cors"] } # For CORS
+uuid = { version = "1", features = ["v4", "serde"] } # For job IDs if using async tasks
+chrono = { version = "0.4", features = ["serde"] } # For timestamps
+thiserror = "1.0" # Added as per Step 1.4 self-check
+reqwest = "0.11" # Added as per ApiError::Reqwest, will use a common version

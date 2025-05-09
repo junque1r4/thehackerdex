@@ -1,6 +1,6 @@
 use anyhow::{Context, Result};
 
-use hackerdex::{
+use thehackerdex::{
     analysis::transaction_parser,
     config::Config,
     db::{

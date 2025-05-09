@@ -1,12 +1,12 @@
 use clap::{Arg, Command};
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use sqlx::postgres::PgPoolOptions;
 use std::env;
 
-use hackerdex::db::repository::Repository;
-use hackerdex::discovery::tracer::{FundTracer, FundTracerConfig};
-use hackerdex::error::{HackerdexError, HackerdexResult};
-use hackerdex::rpc::RateLimitedClient;
+use thehackerdex::db::repository::Repository;
+use thehackerdex::discovery::tracer::{FundTracer, FundTracerConfig};
+use thehackerdex::error::{HackerdexError, HackerdexResult};
+use thehackerdex::rpc::RateLimitedClient;
 
 #[tokio::main]
 async fn main() -> HackerdexResult<()> {

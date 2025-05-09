@@ -18,7 +18,7 @@ mod tests {
 
     #[allow(unused)]
     async fn setup_test_db() -> anyhow::Result<PgPool> {
-        dotenv::dotenv().ok();
+        dotenvy::dotenv().ok();
         let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
 
         println!("Connecting to test database: {}", database_url);

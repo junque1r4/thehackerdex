@@ -1,4 +1,4 @@
-use hackerdex::{
+use thehackerdex::{
     config::Config,
     db::{self, repository::Repository},
     rpc::{TransactionFetcher, client::RateLimitedClient},
@@ -39,11 +39,11 @@ async fn main() -> Result<()> {
         }
         Ok(None) => {
             info!("No monitoring configuration found, using defaults");
-            hackerdex::config::monitoring::MonitoringConfig::default()
+            thehackerdex::config::monitoring::MonitoringConfig::default()
         }
         Err(e) => {
             error!("Failed to load monitoring configuration: {}", e);
-            hackerdex::config::monitoring::MonitoringConfig::default()
+            thehackerdex::config::monitoring::MonitoringConfig::default()
         }
     };
 

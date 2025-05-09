@@ -1,4 +1,4 @@
-use hackerdex::config;
+use thehackerdex::config;
 use sqlx::postgres::PgPoolOptions;
 use std::env;
 use tracing::{Level, info};
@@ -7,7 +7,7 @@ use tracing_subscriber::FmtSubscriber;
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     // Load .env file if present
-    dotenv::dotenv().ok();
+    dotenvy::dotenv().ok();
 
     // Initialize logging
     let subscriber = FmtSubscriber::builder()

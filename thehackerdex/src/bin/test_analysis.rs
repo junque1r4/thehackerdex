@@ -1,7 +1,7 @@
-use hackerdex::analysis::transaction_analysis::perform_comprehensive_analysis;
-use hackerdex::analysis::transaction_parser::ParsedTransaction;
-use hackerdex::db::repository::initialize_db;
-use hackerdex::error::HackerdexResult;
+use thehackerdex::analysis::transaction_analysis::perform_comprehensive_analysis;
+use thehackerdex::analysis::transaction_parser::ParsedTransaction;
+use thehackerdex::db::repository::initialize_db;
+use thehackerdex::error::HackerdexResult;
 use solana_client::rpc_client::RpcClient;
 use solana_transaction_status::UiTransactionTokenBalance;
 use sqlx::postgres::PgPoolOptions;
@@ -15,7 +15,7 @@ async fn main() -> HackerdexResult<()> {
     info!("Starting transaction analysis test");
 
     // Connect to the database
-    dotenv::dotenv().ok();
+    dotenvy::dotenv().ok();
     let database_url = std::env::var("DATABASE_URL")
         .unwrap_or_else(|_| "postgres://postgres:postgres@localhost:5432/hackerdex".to_string());
 

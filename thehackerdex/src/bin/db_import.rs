@@ -1,4 +1,4 @@
-use hackerdex::db::{AddressData, add_known_address, initialize_db};
+use thehackerdex::db::{AddressData, add_known_address, initialize_db};
 use sqlx::PgPool;
 use std::env;
 use std::error::Error;
@@ -15,7 +15,7 @@ use std::io::{self, BufRead, BufReader};
 /// ```
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    dotenv::dotenv().ok();
+    dotenvy::dotenv().ok();
 
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {

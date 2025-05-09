@@ -1,4 +1,4 @@
-use hackerdex::{HackerdexError, config::Config, osint::fetch_malicious_solana_addresses};
+use thehackerdex::{HackerdexError, config::Config, osint::fetch_malicious_solana_addresses};
 use sqlx::postgres::PgPoolOptions;
 use std::process;
 

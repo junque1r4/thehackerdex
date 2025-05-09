@@ -1,15 +1,15 @@
 use chrono::Utc;
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use sqlx::postgres::PgPoolOptions;
 use std::env;
 use std::fs::File;
 use std::io::{self, Write};
 use std::path::PathBuf;
 
-use hackerdex::db::models::TraceLink;
-use hackerdex::db::repository::Repository;
-use hackerdex::discovery::tracer::{FundTracer, FundTracerConfig};
-use hackerdex::rpc::RateLimitedClient;
+use thehackerdex::db::models::TraceLink;
+use thehackerdex::db::repository::Repository;
+use thehackerdex::discovery::tracer::{FundTracer, FundTracerConfig};
+use thehackerdex::rpc::RateLimitedClient;
 
 /// Simple scheduled fund trace job
 #[tokio::main]

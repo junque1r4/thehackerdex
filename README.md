@@ -64,35 +64,48 @@ Detected patterns include:
 
 ## Project Structure
 
+The project is organized as a Cargo workspace:
+
 ```
-.
-├── api_responses/      # Saved OSINT API responses (debugging/rate limits)
-├── config/             # Default configuration files
-│   ├── analyze_config.toml
-│   ├── feature_flags.toml
-│   ├── heuristic_weights.toml
-│   └── monitoring.toml
-├── docs/               # Detailed documentation (like the chapters we wrote) - [Placeholder]
-├── init-db/            # Initial SQL schema (reference only)
-├── migrations/         # SQLx database migration files
-├── src/                # Source code
-│   ├── analysis/       # Transaction parsing, program/wallet analysis
-│   ├── bin/            # Executable binaries (tools, main analysis runner)
-│   ├── config/         # Configuration loading and structures
-│   ├── db/             # Database models, repository, migrations logic
-│   ├── demo/           # Demo code snippets
-│   ├── discovery/      # Fund tracing logic
-│   ├── error/          # Custom error types
-│   ├── heuristic_engine/ # Heuristic rules, risk scoring, context building
-│   ├── osint/          # OSINT integration (ChainAbuse)
-│   ├── rpc/            # Rate-limited Solana RPC client
-│   ├── lib.rs          # Library root
-│   └── main.rs         # Main executable entry point (can be basic runner)
-├── .env.example        # Example environment file
+. (Workspace Root: thehackerdex)
+├── thehackerdex/                 # Core library crate
+│   ├── api_responses/          # Saved OSINT API responses (debugging/rate limits)
+│   ├── config/                 # Default configuration files for the library's CLI tools
+│   │   ├── analyze_config.toml
+│   │   ├── feature_flags.toml
+│   │   ├── heuristic_weights.toml
+│   │   └── monitoring.toml
+│   ├── docs/                   # Detailed documentation for the library
+│   ├── init-db/                # Initial SQL schema (reference only)
+│   ├── migrations/             # SQLx database migration files for the library
+│   ├── src/                    # Library source code
+│   │   ├── analysis/
+│   │   ├── bin/                # Executable CLI tools provided by the library
+│   │   ├── config/             # Internal configuration logic for the library
+│   │   ├── db/
+│   │   ├── demo/
+│   │   ├── discovery/
+│   │   ├── error/
+│   │   ├── heuristic_engine/
+│   │   ├── osint/
+│   │   ├── rpc/
+│   │   ├── lib.rs              # Library root
+│   │   └── main.rs             # Main executable for the 'thehackerdex' binary (if any)
+│   └── Cargo.toml              # Manifest for the 'thehackerdex' library crate
+├── thehackerdex-api/             # Axum API server crate
+│   ├── src/                    # API server source code
+│   │   ├── config.rs           # API specific configuration
+│   │   ├── errors.rs           # API specific error handling
+│   │   ├── handlers/           # API route handlers
+│   │   ├── models.rs           # API request/response models
+│   │   └── main.rs             # API server entry point
+│   └── Cargo.toml              # Manifest for the 'thehackerdex-api' binary crate
+├── .env                        # Environment variables for the workspace (DATABASE_URL, etc.)
+├── .env.example                # Example environment file
 ├── .gitignore
-├── Cargo.lock
-├── Cargo.toml
-└── README.md           # This file
+├── Cargo.lock                  # Workspace lock file
+├── Cargo.toml                  # Workspace manifest (defines members: thehackerdex, thehackerdex-api)
+└── README.md                   # This file
 ```
 
 ## Getting Started

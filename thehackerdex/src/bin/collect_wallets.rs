@@ -1,5 +1,5 @@
 use anyhow::Result;
-use hackerdex::rpc::client::RateLimitedClient;
+use thehackerdex::rpc::client::RateLimitedClient;
 use serde_json::Value;
 use solana_sdk::pubkey::Pubkey;
 use solana_sdk::signature::Signature;
