@@ -15,7 +15,7 @@ pub mod wallet_heuristics;
 use crate::analysis::transaction_analysis::TransactionAnalysisData;
 use crate::db::Repository;
 use crate::error::HackerdexError;
-use solana_client::rpc_client::RpcClient;
+use crate::rpc::client::RateLimitedClient; // Updated import
 use tracing;
 
 // Re-export main types for easier access
@@ -144,7 +144,7 @@ pub fn run_all_heuristics(
 ///
 /// * `analysis_data` - The transaction analysis data to run heuristics on
 /// * `repo` - Database repository for querying known address information
-/// * `rpc_client` - RPC client for fetching on-chain data
+/// * `rpc_client` - Rate-limited RPC client for fetching on-chain data // Updated comment
 ///
 /// # Returns
 ///
@@ -152,7 +152,7 @@ pub fn run_all_heuristics(
 pub async fn run_heuristics(
     mut analysis_data: TransactionAnalysisData,
     repo: &Repository,
-    rpc_client: &RpcClient,
+    rpc_client: &RateLimitedClient, // Changed type to RateLimitedClient
 ) -> Result<TransactionAnalysisData, HackerdexError> {
     tracing::info!(
         "Running heuristics for transaction {}",

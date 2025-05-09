@@ -67,12 +67,12 @@ async fn trigger_wallet_analysis(
     let wallet_contexts = context_builder::build_wallet_contexts(
         &[wallet_address_str.clone()], // build_wallet_contexts expects &[String]
         &db_repo,
-        &*solana_client.client, // Pass the inner RpcClient
+        solana_client.as_ref(), // Pass the RateLimitedClient
     )
     .await
     .map_err(|e| {
         error!("Failed to build wallet context for {}: {:?}", wallet_address_str, e);
-        e.into() // Converts HackerdexError to ApiError via #[from]
+        ApiError::from(e) // Converts HackerdexError to ApiError via #[from]
     })?;
 
     let wallet_context = wallet_contexts.into_iter().next().ok_or_else(|| {
@@ -108,7 +108,7 @@ async fn trigger_wallet_analysis(
     let wallet_score_val = heuristic_flags.get_overall_suspicion_score();
     let risk_factors_val = heuristic_flags.get_triggered_flags_description();
 
-    let mut risk_score_obj = RiskScore::from_score_and_factors(
+    let risk_score_obj = RiskScore::from_score_and_factors(
         wallet_score_val,
         risk_factors_val.clone(), // clone because risk_factors_val is used later for HeuristicInfo
         has_critical_flags_val,

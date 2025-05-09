@@ -1,7 +1,8 @@
 use crate::db::Repository;
 use crate::error::HackerdexError;
 use crate::heuristic_engine::types::WalletContext;
-use solana_client::rpc_client::RpcClient;
+use crate::rpc::client::RateLimitedClient; // Import RateLimitedClient
+use solana_sdk::pubkey::Pubkey; // Import Pubkey
 use std::str::FromStr;
 use tokio::time::{Duration, sleep};
 use tracing;
@@ -17,7 +18,7 @@ const MAX_RECENT_TXS: usize = 20;
 ///
 /// * `addresses` - A slice of wallet addresses to build context for
 /// * `repo` - Database repository to query known address information
-/// * `rpc_client` - RPC client for on-chain data fetching
+/// * `rpc_client` - Rate-limited RPC client for on-chain data fetching
 ///
 /// # Returns
 ///
@@ -25,7 +26,7 @@ const MAX_RECENT_TXS: usize = 20;
 pub async fn build_wallet_contexts(
     addresses: &[String],
     repo: &Repository,
-    rpc_client: &RpcClient,
+    rpc_client: &RateLimitedClient, // Changed RpcClient to RateLimitedClient
 ) -> Result<Vec<WalletContext>, HackerdexError> {
     let mut contexts = Vec::with_capacity(addresses.len());
     tracing::debug!("Building wallet contexts for {} addresses", addresses.len());
@@ -44,9 +45,18 @@ pub async fn build_wallet_contexts(
         }
 
         // Fetch on-chain SOL balance
-        match rpc_client
-            .get_balance(&solana_sdk::pubkey::Pubkey::from_str(address).unwrap_or_default())
-        {
+        // Pubkey parsing can fail, handle it gracefully
+        let _pubkey = match Pubkey::from_str(address) {
+            Ok(pk) => pk,
+            Err(e) => {
+                tracing::warn!("Invalid address format for {}: {}, skipping balance and tx fetch", address, e);
+                // Potentially push a context with default/error values or skip this address
+                contexts.push(context); // Push context with what we have so far
+                continue; // Skip to the next address
+            }
+        };
+
+        match rpc_client.get_balance(&address).await { // Updated to use RateLimitedClient and await
             Ok(balance) => {
                 context.sol_balance = balance as f64;
             }
@@ -57,9 +67,7 @@ pub async fn build_wallet_contexts(
 
         // Fetch recent transaction signatures
         // We'll use these to determine tx counts and creation time
-        match rpc_client.get_signatures_for_address(
-            &solana_sdk::pubkey::Pubkey::from_str(address).unwrap_or_default(),
-        ) {
+        match rpc_client.get_signatures_for_address(&address, None, None, Some(MAX_RECENT_TXS)).await { // Updated to use RateLimitedClient and await
             Ok(signatures) => {
                 if !signatures.is_empty() {
                     // The oldest transaction we have might be the wallet creation

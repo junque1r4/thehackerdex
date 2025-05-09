@@ -7,6 +7,7 @@ pub mod error;
 pub mod heuristic_engine;
 pub mod osint;
 pub mod rpc;
+pub mod wallet_analysis;
 
 // Re-export main items for easier usage
 pub use error::HackerdexError;

@@ -26,12 +26,14 @@ pub enum ApiError {
     Validation(String),
 
     #[error("Not found: {0}")]
+    #[allow(dead_code)] // Variant might be used in the future
     NotFound(String),
 
     #[error("Internal server error: {0}")] // Added {0} to match other detailed errors
     InternalServerError(String),
 
     #[error("Analysis task failed: {0}")]
+    #[allow(dead_code)] // Variant might be used in the future
     AnalysisTaskFailed(String),
 }
 

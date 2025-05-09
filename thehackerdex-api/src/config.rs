@@ -5,6 +5,7 @@ use std::env;
 pub struct AppConfig {
     pub database_url: String,
     pub server_address: String,
+    #[allow(dead_code)] // Field might be used in the future or by other parts of the application
     pub solana_rpc_url: String,
     // Add other configuration fields as needed, e.g., API keys, log level
     // pub chainabuse_api_key: Option<String>,

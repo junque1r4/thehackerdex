@@ -9,7 +9,7 @@ pub use monitoring::{
 use crate::error::HackerdexError;
 use dotenvy::dotenv;
 use serde::{Deserialize, Serialize};
-use std::{env, fs, path::Path};
+use std::{env, path::Path};
 
 /// Configuration for the application
 #[derive(Debug, Clone, Serialize, Deserialize)]

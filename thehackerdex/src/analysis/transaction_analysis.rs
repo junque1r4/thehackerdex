@@ -6,7 +6,7 @@ use crate::analysis::wallet_analyzer;
 use crate::analysis::wallet_analyzer::WalletDirectAnalysisResult;
 use crate::db::Repository;
 use crate::error::HackerdexResult;
-use solana_client::rpc_client::RpcClient;
+use crate::rpc::client::RateLimitedClient;
 use sqlx::PgPool;
 use std::fmt;
 use tracing::{debug, info};
@@ -417,7 +417,7 @@ pub async fn perform_initial_analysis(
 pub async fn perform_comprehensive_analysis(
     pool: &PgPool,
     transaction: &ParsedTransaction,
-    rpc_client: &RpcClient,
+    rpc_client: &RateLimitedClient, // Changed to RateLimitedClient
 ) -> HackerdexResult<TransactionAnalysisData> {
     // First, perform the initial analysis
     info!(

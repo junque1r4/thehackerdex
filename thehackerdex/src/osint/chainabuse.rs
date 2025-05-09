@@ -14,12 +14,14 @@ use std::collections::HashSet;
 
 /// ChainAbuse API response for reports
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)] // Fields may be used in future or are part of external API
 struct ChainAbuseResponse {
     reports: Vec<ChainAbuseReport>,
 }
 
 /// Individual report from ChainAbuse
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)] // Fields may be used in future or are part of external API
 struct ChainAbuseReport {
     id: String,
     #[serde(rename = "createdAt")]
@@ -39,6 +41,7 @@ struct ChainAbuseReport {
 
 /// Address from ChainAbuse report
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)] // Fields may be used in future or are part of external API
 struct ChainAbuseAddress {
     address: String,
     chain: String,

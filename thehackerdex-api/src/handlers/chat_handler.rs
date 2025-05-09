@@ -9,9 +9,9 @@ pub fn chat_routes() -> Router<AppState> {
     // Add other chat-related routes if needed, e.g., for session management
 }
 
-#[instrument(skip(state, payload), fields(query = %payload.query_text))]
+#[instrument(skip(_state, payload), fields(query = %payload.query_text))]
 async fn handle_chat_query(
-    State(state): State<AppState>,
+    State(_state): State<AppState>,
     Json(payload): Json<ChatQueryRequest>,
 ) -> Result<Json<ChatQueryResponse>, ApiError> {
     tracing::info!("Received chat query: {}", payload.query_text);

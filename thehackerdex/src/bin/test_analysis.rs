@@ -2,7 +2,7 @@ use thehackerdex::analysis::transaction_analysis::perform_comprehensive_analysis
 use thehackerdex::analysis::transaction_parser::ParsedTransaction;
 use thehackerdex::db::repository::initialize_db;
 use thehackerdex::error::HackerdexResult;
-use solana_client::rpc_client::RpcClient;
+use thehackerdex::rpc::client::RateLimitedClient; // Changed to RateLimitedClient
 use solana_transaction_status::UiTransactionTokenBalance;
 use sqlx::postgres::PgPoolOptions;
 use tracing::{Level, info};
@@ -80,7 +80,7 @@ async fn main() -> HackerdexResult<()> {
     .await?;
 
     // Create a Solana RPC client (using default endpoint)
-    let rpc_client = RpcClient::new("https://api.mainnet-beta.solana.com");
+    let rpc_client = RateLimitedClient::new(Some("https://api.mainnet-beta.solana.com".to_string()));
 
     // Create a sample transaction for testing
     // You can modify these values to test different scenarios

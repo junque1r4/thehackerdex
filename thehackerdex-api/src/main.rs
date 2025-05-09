@@ -21,6 +21,7 @@ use crate::errors::ApiError;
 #[derive(Clone)]
 pub struct AppState {
     db_pool: PgPool,
+    #[allow(dead_code)] // Field might be used in the future or by other parts of the application
     config: Arc<AppConfig>,
     // You might also want to initialize and store an instance of your
     // core analysis engine components if they are stateful and expensive to create.
