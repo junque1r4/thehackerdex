@@ -121,8 +121,8 @@ The project is organized as a Cargo workspace:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/your-username/hackerdex.git # Replace with actual URL
-    cd hackerdex
+    git clone https://github.com/junque1r4/thehackerdex.git
+    cd thehackerdex
     ```
 
 2.  **Configure Environment (`.env`):**
@@ -130,8 +130,10 @@ The project is organized as a Cargo workspace:
     * Edit `.env` and set **at least** `DATABASE_URL`.
     * Optionally set `SOLANA_RPC_URL` (defaults to a public endpoint) and `CHAINABUSE_API`.
     ```dotenv
-    # Example .env
-    DATABASE_URL=postgresql://user:password@localhost:5432/hackerdex
+    # Example .env - Ensure these values match your local setup.
+    # The DATABASE_URL, for instance, should match your PostgreSQL user, password, and database name.
+    # If using the provided Docker setup, it might be: postgresql://hackerdex:hackerdex_password@localhost:5432/hackerdex
+    DATABASE_URL=postgresql://user:password@localhost:5432/your_db_name
     SOLANA_RPC_URL=https://your-rpc-endpoint.com/
     CHAINABUSE_API=your_chainabuse_api_key
     ```
@@ -181,7 +183,7 @@ HackerDex provides several command-line tools (binaries located in `target/relea
 
 This is the core analysis tool. It fetches wallets from the database based on criteria defined in `config/analyze_config.toml`, analyzes their historical transactions, applies heuristics, detects exfiltration patterns, and optionally updates the database notes with tags.
 
-* **Configure Analysis:** Edit `config/analyze_config.toml` to specify which wallets to analyze (e.g., by category, risk level, specific addresses, or `analyze_all = true`), history depth, concurrency, and exfiltration rule parameters.
+* **Configure Analysis:** Edit `thehackerdex/config/analyze_config.toml` (relative to the workspace root) to specify which wallets to analyze (e.g., by category, risk level, specific addresses, or `analyze_all = true`), history depth, concurrency, and exfiltration rule parameters.
 * **Run Analysis:**
     ```bash
     cargo run --release --bin analyze_known_wallets
@@ -222,11 +224,12 @@ cargo run --release --bin monitor
 
 ## Configuration Files
 
-  * `.env`: Environment variables (DB URL, RPC URL, API Keys). **Crucial for basic operation.**
-  * `config/analyze_config.toml`: Controls the `analyze_known_wallets` tool - which wallets to analyze, history depth, concurrency, and parameters for exfiltration rules (structuring thresholds, mixer categories, etc.).
-  * `config/heuristic_weights.toml`: Defines the weight (importance) of each heuristic flag when calculating the final risk score. Allows tuning the risk assessment sensitivity.
-  * `config/feature_flags.toml`: Enables or disables specific, potentially resource-intensive or experimental analysis features (e.g., Peel Chain, Fund Churning).
-  * `config/monitoring.toml`: Configures the `monitor` tool - target programs/addresses, monitoring strategy (polling/websocket), alert criteria.
+  * `.env`: Located at the workspace root (`thehackerdex/.env`). Contains environment variables (DB URL, RPC URL, API Keys). **Crucial for basic operation.**
+  * `thehackerdex/config/analyze_config.toml`: Controls the `analyze_known_wallets` CLI tool - which wallets to analyze, history depth, concurrency, and parameters for exfiltration rules (structuring thresholds, mixer categories, etc.).
+  * `thehackerdex/config/heuristic_weights.toml`: Defines the weight (importance) of each heuristic flag for the CLI tools when calculating the final risk score. Allows tuning the risk assessment sensitivity.
+  * `thehackerdex/config/feature_flags.toml`: Enables or disables specific, potentially resource-intensive or experimental analysis features for the CLI tools (e.g., Peel Chain, Fund Churning).
+  * `thehackerdex/config/monitoring.toml`: Configures the `monitor` CLI tool - target programs/addresses, monitoring strategy (polling/websocket), alert criteria.
+  * `thehackerdex-api/src/config.rs` (and its corresponding `.env` variables): Manages configuration for the API server.
 
 ## Contributing
 
